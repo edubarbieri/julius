@@ -1,6 +1,7 @@
 package repository
 
 import (
+	"context"
 	"testing"
 
 	"github.com/edubarbieri/julius/parser"
@@ -16,6 +17,6 @@ func TestShouldSaveNfeRepository(t *testing.T) {
 	repository, err := NewPgNfeRepository("postgres://nfe:p@ssword@localhost/nfe")
 	urlParser, err := parser.GetParser(NfeUrl)
 	nfe := urlParser.Parse(NfeUrl)
-	_, err = repository.Save(nfe)
+	_, err = repository.Save(context.Background(), nfe)
 	assert.Nil(t, err)
 }

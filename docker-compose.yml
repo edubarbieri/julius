@@ -1,0 +1,23 @@
+version: '3.1'
+services:
+  julius_db:
+    image: "postgres:14"
+    environment:
+      POSTGRES_PASSWORD: sFfjf49h5NyTzWEV
+      POSTGRES_USER: julius
+      POSTGRES_DB: julius
+    volumes:
+      - "./pg_data:/var/lib/postgresql/data"
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+  julius_api:
+    build: ./
+    environment:
+      - POSTGRES_URL=postgres://julius:sFfjf49h5NyTzWEV@julius_db/julius
+      - PORT=8081
+    ports:
+      - "8081:8081"
+    depends_on:
+      - julius_db
+    restart: unless-stopped

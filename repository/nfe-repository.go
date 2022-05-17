@@ -1,7 +1,12 @@
 package repository
 
-import "github.com/edubarbieri/julius/entity"
+import (
+	"context"
+
+	"github.com/edubarbieri/julius/entity"
+)
 
 type NfeRepository interface {
-	Save(entity.Nfe) (entity.Nfe, error)
+	ExistByAccessKey(context.Context, string) (bool, error)
+	Save(context.Context, entity.Nfe) (entity.Nfe, error)
 }
