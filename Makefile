@@ -7,4 +7,4 @@ run_dev:
 
 run_prd:
 	git pull
-	docker-compose -f ./docker-compose.yml up --build
+	docker-compose -f ./docker-compose.yml up -d --build
