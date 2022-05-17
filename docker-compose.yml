@@ -7,7 +7,7 @@ services:
       POSTGRES_USER: julius
       POSTGRES_DB: julius
     volumes:
-      - "./pg_data:/var/lib/postgresql/data"
+      - "../pg_data:/var/lib/postgresql/data"
     ports:
       - "5432:5432"
     restart: unless-stopped
