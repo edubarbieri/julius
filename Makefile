@@ -3,6 +3,7 @@ tests:
 
 run_dev:
 	env POSTGRES_URL="postgres://nfe:p@ssword@localhost/nfe" \
+	env JWT_SECRET="weaksecret" \
 	go run main.go
 
 run_prd:

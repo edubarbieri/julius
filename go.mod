@@ -3,8 +3,9 @@ module github.com/edubarbieri/julius
 go 1.18
 
 require (
+	github.com/gin-gonic/gin v1.7.7
 	github.com/gocolly/colly v1.2.0
-	github.com/gocolly/colly/v2 v2.1.0
+	github.com/golang-jwt/jwt v3.2.2+incompatible
 	github.com/jackc/pgx/v4 v4.16.1
 	github.com/stretchr/testify v1.7.0
 )
@@ -17,7 +18,6 @@ require (
 	github.com/antchfx/xpath v1.1.8 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
-	github.com/gin-gonic/gin v1.7.7 // indirect
 	github.com/go-playground/locales v0.14.0 // indirect
 	github.com/go-playground/universal-translator v0.18.0 // indirect
 	github.com/go-playground/validator/v10 v10.11.0 // indirect
