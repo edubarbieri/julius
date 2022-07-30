@@ -11,6 +11,7 @@ RUN apk --no-cache add tzdata
 RUN echo "America/Sao_Paulo" > /etc/timezone
 WORKDIR /root/
 COPY --from=build /app/julius ./
+COPY frontend ./frontend
 ENV GIN_MODE=release
 RUN ls -lsh
 RUN pwd

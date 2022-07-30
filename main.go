@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"net/http"
 
 	"github.com/edubarbieri/julius/auth"
 	"github.com/edubarbieri/julius/config"
@@ -19,12 +20,16 @@ func main() {
 	}
 	nfeService := service.NewNfeService(nfeRepository)
 	router := gin.Default()
-	v1 := router.Group("/v1")
+
+	v1 := router.Group("/api/v1")
 	v1.Use(auth.JwtTokenCheck)
 	{
 		v1Api := web.NewV1Api(nfeService)
 		v1Api.SetupRouters(v1)
 	}
+
+	router.StaticFS("/", http.Dir("./frontend"))
+
 	log.Println("Starting server in port", config.HttpPort)
 	router.Run(fmt.Sprintf(":%d", config.HttpPort))
 }
